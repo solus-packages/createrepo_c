@@ -1,0 +1,26 @@
+From c1a39da6bd2f144af9ca8eccd6597ec5948b0a94 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey@solus-project.com>
+Date: Fri, 21 Aug 2015 10:20:56 +0100
+Subject: [PATCH] Fix broken prefix usage
+
+Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b9934c8..88b1032 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -155,7 +155,7 @@ INCLUDE(CPack)
+ 
+ # Other files
+ 
+-SET(CMAKE_INSTALL_PREFIX "/")
++SET(CMAKE_INSTALL_PREFIX "")
+ INSTALL(FILES README COPYING
+         DESTINATION "/usr/share/doc/createrepo_c-${VERSION}")
+ INSTALL(FILES createrepo_c.bash
+-- 
+2.5.0
+
