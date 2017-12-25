@@ -1,19 +1,24 @@
 name       : createrepo_c
-version    : 0.1.14
-release    : 3
+version    : 0.10.0
+release    : 4
 source     :
-    - https://fedorahosted.org/releases/c/r/createrepo_c/createrepo_c-0.1.14.tar.xz : a3f545d45575ba5a70f68b174354dd6e6df096e30f2cab24bbe98b36d0f6527f
+    - https://github.com/rpm-software-management/createrepo_c/archive/0.10.0/createrepo_c-0.10.0.tar.gz : 510d1006294c2cfc7e6e01a5ffa243ac8b8e8cdb045efadfebb5c03f0251adaa
 license    : GPL-2.0
 summary    : C implementation of the createrepo.
+component  : programming.devel
 description: |
     C implementation of the createrepo.
 clang      : no
 builddeps  :
+    - pkgconfig(libcurl)
     - pkgconfig(sqlite3)
+    - pkgconfig(popt)
     - pkgconfig(rpm)
+    - bzip2-devel
 setup      : |
-    %patch -p1 < $pkgfiles/0001-Fix-broken-prefix-usage.patch
-    %cmake .
+    %patch -p1 < $pkgfiles/createrepo_c-PR70.patch
+    %patch -p1 < $pkgfiles/createrepo_c-add-switch-to-turn-off-python.patch
+    %cmake . -DENABLE_PYTHON=OFF
 build      : |
     %make
 install    : |
