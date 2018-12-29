@@ -1,14 +1,13 @@
 name       : createrepo_c
-version    : 0.10.0
-release    : 4
+version    : 0.11.1
+release    : 5
 source     :
-    - https://github.com/rpm-software-management/createrepo_c/archive/0.10.0/createrepo_c-0.10.0.tar.gz : 510d1006294c2cfc7e6e01a5ffa243ac8b8e8cdb045efadfebb5c03f0251adaa
-license    : GPL-2.0
+    - https://github.com/rpm-software-management/createrepo_c/archive/0.11.1.tar.gz : 6c8294dfef38ac78fad2efce01ea7a993e743e7ddfb53215ae7d65abe5e21e48
+license    : GPL-2.0-or-later
 summary    : C implementation of the createrepo.
 component  : programming.devel
 description: |
     C implementation of the createrepo.
-clang      : no
 builddeps  :
     - pkgconfig(libcurl)
     - pkgconfig(sqlite3)
@@ -16,8 +15,6 @@ builddeps  :
     - pkgconfig(rpm)
     - bzip2-devel
 setup      : |
-    %patch -p1 < $pkgfiles/createrepo_c-PR70.patch
-    %patch -p1 < $pkgfiles/createrepo_c-add-switch-to-turn-off-python.patch
     %cmake . -DENABLE_PYTHON=OFF
 build      : |
     %make
